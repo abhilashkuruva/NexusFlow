@@ -1,0 +1,31 @@
+# Java / Spring Boot
+
+target/
+*.jar
+*.war
+
+# Node
+
+node_modules/
+dist/
+build/
+
+# Cache
+
+.cache/
+npm-cache/
+
+# IDE
+
+.idea/
+.vscode/
+*.iml
+
+# Logs
+
+*.log
+
+# Environment
+
+.env
+application-local.properties
