@@ -1,19 +1,15 @@
-# Java / Spring Boot
+# Spring Boot
 
 target/
 *.jar
 *.war
 
-# Node
+# Node / React
 
 node_modules/
-dist/
 build/
-
-# Cache
-
+dist/
 .cache/
-npm-cache/
 
 # IDE
 
