@@ -119,6 +119,25 @@ npm run dev
 docker-compose up --build -d
 ```
 
+## ☁️ Deploy with Neon, Render, and Vercel
+
+The repository includes [`render.yaml`](./render.yaml) for the Spring Boot API and
+[`frontend/vercel.json`](./frontend/vercel.json) for Vercel's React SPA fallback.
+
+1. Create a Neon PostgreSQL project and copy its host, database name, user, and password.
+2. In Render, create a **Blueprint** from this repository. Render will use `render.yaml`
+   to create the `nexusflow-api` web service. Set `DB_HOST`, `DB_USERNAME`, and
+   `DB_PASSWORD` from Neon, then deploy. `DB_SSLMODE=require` is already configured.
+3. Confirm the API is healthy at
+   `https://<render-service>.onrender.com/api/auth/health`.
+4. Create a Vercel project from this repository with **Root Directory** set to `frontend`.
+   Set `VITE_API_URL` to `https://<render-service>.onrender.com/api`, then deploy.
+5. Copy the final Vercel URL into Render's `CORS_ALLOWED_ORIGINS` value (without a
+   trailing slash) and redeploy the API.
+
+Do not commit Neon credentials or JWT secrets. Render's generated `JWT_SECRET` should
+be retained for the lifetime of the deployment; changing it invalidates existing tokens.
+
 ---
 
 ## 🔑 Demo Credentials

@@ -21,10 +21,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = {
-        "http://localhost:3000",
-        "http://localhost:3001"
-})
 @Tag(
         name = "Authentication",
         description = "User authentication and registration APIs"
